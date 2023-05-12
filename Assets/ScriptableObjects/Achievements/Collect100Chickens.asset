@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e117bc71030cb74d88b9aa6c461de67, type: 3}
+  m_Name: Collect100Chickens
+  m_EditorClassIdentifier: 
+  _name: Lover of kisses
+  _sprite: {fileID: 887291537, guid: 9cd0536c284bb744690a3b54ddcee571, type: 3}
+  _isReceived: 0
+  _description: Collect 100 chickens
