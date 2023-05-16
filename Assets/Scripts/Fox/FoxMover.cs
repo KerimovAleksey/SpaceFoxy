@@ -1,50 +1,41 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class FoxMover : MonoBehaviour
+public abstract class FoxMover : MonoBehaviour
 {
-	[SerializeField] private float _tapRange;
-	[SerializeField] private Joystick _joystick;
+	protected float _speed;
+	protected Rigidbody2D _rigidBody;
 
-	[SerializeField] private float _maxSpeed;
-	[SerializeField] private float _minSpeed;
-
-	private float _speed;
-	private Rigidbody2D _rigidBody;
-
-	private Vector2 _velocity;
-	private bool _isControlled = true;
+	protected Vector2 _velocity;
+	protected bool _isControlled = true;
 
 	private float _startkickSpeed = 60;
 	private float _currentKickSpeed = 0;
 
+	public event UnityAction SpeedChanged;
+
 	private void Awake()
 	{
 		_rigidBody = GetComponent<Rigidbody2D>();
-		_speed = PlayerPrefs.GetFloat("FoxSpeed", (_maxSpeed + _minSpeed) / 2f);
 	}
 
-	private void FixedUpdate()
-	{
-		CheckPlayerPosition();
-		if (_isControlled == true)
-		{
-			Vector2 moveInput = new Vector2(_joystick.Horizontal, _joystick.Vertical);
-			_velocity = moveInput * _speed;
-			_rigidBody.MovePosition(_rigidBody.position + _velocity * Time.deltaTime);
-		}
-	}
+	protected abstract void Update();
+
 
 	public void KickOut()
 	{
-		_isControlled = false;
-		StartCoroutine(SpeedDown());
+		if (_isControlled == true)
+		{
+			_isControlled = false;
+			StartCoroutine(SpeedDown());
+		}
 	}
 
 	private IEnumerator SpeedDown()
 	{
 		_currentKickSpeed = _startkickSpeed;
-		while (_currentKickSpeed != 0)
+		while (_currentKickSpeed > 0)
 		{
 			_rigidBody.velocity = new Vector2(-_currentKickSpeed, 0);
 			_currentKickSpeed -= 1;
@@ -54,7 +45,7 @@ public class FoxMover : MonoBehaviour
 		_rigidBody.velocity = new Vector2(0, 0);
 	}
 
-	private void CheckPlayerPosition()
+	protected void CheckPlayerPosition()
 	{
 		var pos = gameObject.transform.position;
 		if (pos.x > 11f || pos.x < -11f || pos.y > 6f || pos.y < -5f)
@@ -72,5 +63,6 @@ public class FoxMover : MonoBehaviour
 	public void SetNewSpeed()
 	{
 		_speed = PlayerPrefs.GetFloat("FoxSpeed");
+		SpeedChanged?.Invoke();
 	}
 }

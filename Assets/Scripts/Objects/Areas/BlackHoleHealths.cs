@@ -16,7 +16,7 @@ public class BlackHoleHealths : HealthCompanent
 
 	protected override void OnEnable()
 	{
-		_currentMaxHP = _maxHealth * _try;
+		_currentMaxHP = _maxHealth + _try;
 		_health = (int)_currentMaxHP;
 		OnTheBlackHoleStart?.Invoke();
 		HealthChanged += OnGetDamageAction;

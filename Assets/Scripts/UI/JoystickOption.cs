@@ -7,12 +7,15 @@ using UnityEngine.UI;
 
 public class JoystickOption : MonoBehaviour
 {
-    [SerializeField] private FoxMover _foxMover;
+	[SerializeField] private GameObject _fox;
     [SerializeField] private TMP_Text _speedLabel;
     [SerializeField] private Slider _slider;
 
+    private FoxMover _foxMover;
+
 	private void OnEnable()
 	{
+		_foxMover = _fox.GetComponent<FoxMover>();
 		_slider.value = PlayerPrefs.GetFloat("FoxSpeed", _foxMover.GetCurrentSpeed());
 
 		SetLabelText((int)_slider.value);

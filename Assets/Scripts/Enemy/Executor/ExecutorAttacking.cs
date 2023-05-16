@@ -26,7 +26,7 @@ public class ExecutorAttacking : BossesStandartAttackComponent
 	private void Awake()
 	{
 		SetSAPostDelay(3);
-		SetStandartAttackDelay(1);
+		SetStandartAttackDelay(1.25f);
 		SetStandartMeteorsCount(3);
 		SetSpawnMeteorDelay(0.7f);
 		SetSATimes(new int[] { 10, 30, 50});
@@ -56,6 +56,11 @@ public class ExecutorAttacking : BossesStandartAttackComponent
 	{
 		for (int j = 0; j < waveCount; j++)
 		{
+			foreach (var y in yPos)
+			{
+				ActivateSpawnSign(new Vector3(4, y, 0), SpawnSignsPool);
+			}
+			yield return new WaitForSeconds(0.9f);
 			for (int i = 0; i < lineCount; i++)
 			{
 				foreach (var y in yPos)
@@ -65,7 +70,6 @@ public class ExecutorAttacking : BossesStandartAttackComponent
 				}
 				yield return new WaitForSeconds(0.5f);
 			}
-			yield return new WaitForSeconds(1);
 			yPos = new int[] { -4, -1, 2};
 		}
 	}
@@ -74,16 +78,20 @@ public class ExecutorAttacking : BossesStandartAttackComponent
 	{
 		float[] xPos = new float[] { -12.5f,-11, -9.5f, -8, -6.5f, -5, -3.5f, -2, -0.5f, 1, 2.5f, 4};
 
-		foreach (var x in xPos)
-		{
-			ActivateSpawnSign(new Vector3(x, -5, 0));
-		}
-
-		yield return new WaitForSeconds(0.9f);
-
 		for (int i = 0; i < wavesCount; i++)
 		{
-			int skipWaveNumber = Random.Range(0, xPos.Length);
+			int skipWaveNumber = Random.Range(4, xPos.Length);
+
+			for (int j = 0; j < xPos.Length; j++)
+			{
+				if (j != skipWaveNumber && j != xPos.Length)
+				{
+					ActivateSpawnSign(new Vector3(xPos[j], -5, 0));
+				}
+			}
+
+			yield return new WaitForSeconds(0.9f);
+
 			for (int j = 0; j < xPos.Length; j++)
 			{
 				if (j != skipWaveNumber && j != xPos.Length)
@@ -91,7 +99,7 @@ public class ExecutorAttacking : BossesStandartAttackComponent
 					ActivateObject(new Vector3(xPos[j], -7, 0), new Vector3(xPos[j], 5, 0), StandartMeteorsPool);
 				}
 			}
-			yield return new WaitForSeconds(1);
+			yield return new WaitForSeconds(0.2f);
 		}
 	}
 

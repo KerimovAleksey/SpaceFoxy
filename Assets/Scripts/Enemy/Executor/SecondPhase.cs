@@ -25,7 +25,7 @@ public class SecondPhase : BossesStandartAttackComponent
 	private void Awake()
 	{	
 		SetSAPostDelay(3);
-		SetStandartAttackDelay(1f);
+		SetStandartAttackDelay(1.25f);
 		SetStandartMeteorsCount(2);
 		SetSATimes(new int[] { 5, 25, 40, 80, 100});
 	}

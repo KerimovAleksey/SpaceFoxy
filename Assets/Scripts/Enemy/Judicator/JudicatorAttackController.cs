@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -112,12 +114,17 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 
 	private IEnumerator SpawnEmitters(int[] yPositions)
 	{
-		for (int i = 0; i < yPositions.Length; i++)
+		for (int j = -1; j <= 1; j+=2)
 		{
-			var obj = Instantiate(_emitterMissile);
-			obj.transform.position = new Vector3(4, yPositions[i], 0);
-			yield return new WaitForSeconds(1);
-		} 
+			for (int i = 0; i < yPositions.Length; i++)
+			{
+				var obj = Instantiate(_emitterMissile);
+				obj.GetComponent<Emitter>().SetDirection(j);
+				obj.transform.position = new Vector3(4 * j, yPositions[i], 0);
+				yield return new WaitForSeconds(1);
+			}
+			Array.Reverse(yPositions);
+		}
 	}
 
 	private IEnumerator SpawnWaveLineAttack(int countInOneLine)
@@ -125,14 +132,15 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 		int[] firstWaveYPos = new int[] { -4, -2, 0, 2, 4};
 		int[] secondWaveYPos = new int[] { -3, -1, 1, 3};
 
-		foreach (var yPos in firstWaveYPos)
-		{
-			var position = new Vector3(4, yPos, 0);
-			ActivateSpawnSign(position);
-		}
-		yield return new WaitForSeconds(0.9f);
 		for (int i = 0; i < 2; i++)
 		{
+			foreach (var yPos in firstWaveYPos)
+			{
+				var position = new Vector3(4, yPos, 0);
+				ActivateSpawnSign(position);
+			}
+			yield return new WaitForSeconds(0.9f);
+
 			for (int j = 0; j < countInOneLine; j++)
 			{
 				foreach (var yPos in firstWaveYPos)
@@ -142,7 +150,14 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 				}
 				yield return new WaitForSeconds(0.35f);
 			}
-			yield return new WaitForSeconds(2);
+
+			foreach (var yPos in secondWaveYPos)
+			{
+				var position = new Vector3(4, yPos, 0);
+				ActivateSpawnSign(position);
+			}
+			yield return new WaitForSeconds(0.9f);
+
 			for (int j = 0; j < countInOneLine; j++)
 			{
 				foreach (var yPos in secondWaveYPos)
@@ -152,7 +167,6 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 				}
 				yield return new WaitForSeconds(0.35f);
 			}
-			yield return new WaitForSeconds(2);
 		}
 	}
 

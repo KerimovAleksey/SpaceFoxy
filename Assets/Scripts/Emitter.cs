@@ -11,10 +11,16 @@ public class Emitter : MonoBehaviour
 
 	private float _time = 0;
 	private Rigidbody2D _rigidBody;
+	private int _direction = 1;
 
 	private void Start()
 	{
 		_rigidBody = GetComponent<Rigidbody2D>();
+	}
+
+	public void SetDirection(int direction)
+	{
+		_direction = direction;
 	}
 
 	private void FixedUpdate()
@@ -22,7 +28,7 @@ public class Emitter : MonoBehaviour
 		if (_time < 2)
 		{
 			_time += Time.fixedDeltaTime;
-			_rigidBody.velocity = Vector2.left * _speed;
+			_rigidBody.velocity = Vector2.left * _speed * _direction;
 		}
 		else
 		{

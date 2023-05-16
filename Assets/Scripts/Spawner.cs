@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
             {
                 ActivateObject();
             }
-            if (_currentTimeDelay > 0.5f)
+            if (_currentTimeDelay > 1f)
 			    _currentTimeDelay = _spawnDelay - _gameSpeedController.GetCurrentTime() / 200f;
             yield return new WaitForSeconds(_currentTimeDelay);
         }
@@ -73,5 +73,4 @@ public class Spawner : MonoBehaviour
     {
         _objCountInOneTime++;
 	}
-
 }
