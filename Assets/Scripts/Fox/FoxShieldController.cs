@@ -84,7 +84,7 @@ public class FoxShieldController : MonoBehaviour
 		{
 			Debug.Log(1f / time);
 			_imageButtonCompanent.fillAmount += 1f / time;
-			yield return new WaitForSeconds(1f / time);
+			yield return new WaitForSeconds(1f);
 		}
 	}
 }

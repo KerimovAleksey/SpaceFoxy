@@ -82,6 +82,6 @@ public class CapsuloidAttacking : BossesStandartAttackComponent
 
 	private void OnDestroy()
 	{
-		ScenesBridge.Achivements.Add("The beginning of a journey");
+		DataManager.GameDataInfo.AchievementsReceived["The beginning of a journey"] = true;
 	}
 }

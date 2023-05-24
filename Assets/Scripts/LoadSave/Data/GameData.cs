@@ -6,15 +6,22 @@ using UnityEngine;
 public class GameData
 {
     public int Money;
+    public int AllGameMoneyEarned;
+    public int ChickenCount;
+    public int DeathsCount;
 
-	public SerializableDictionary<string, bool> _itemsBought;
-    public SerializableDictionary<string, bool> _achievementsReceived;
+	public SerializableDictionary<string, bool> ItemsBought;
+    public SerializableDictionary<string, bool> AchievementsReceived;
 
     // Стартовые значения для новой игры 
     public GameData()
     {
         Money = 0;
-        _achievementsReceived = new SerializableDictionary<string, bool>();
-        _itemsBought = new SerializableDictionary<string, bool>();
+        AllGameMoneyEarned = 0;
+	    ChickenCount = 0;
+        DeathsCount = 0;
+
+        AchievementsReceived = new SerializableDictionary<string, bool>();
+        ItemsBought = new SerializableDictionary<string, bool>();
     }
 }

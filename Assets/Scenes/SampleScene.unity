@@ -6139,13 +6139,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _songList:
+  - {fileID: 8300000, guid: 855cdf088af3463408914a335db6c19e, type: 3}
   - {fileID: 8300000, guid: accdff37a91933a45a05e14552b3fea2, type: 3}
   - {fileID: 8300000, guid: e8b3f5771053416438e5a45073a43b53, type: 3}
   - {fileID: 8300000, guid: 63837088c9a35b2438a50bcaadb7cfba, type: 3}
   - {fileID: 8300000, guid: 1ea524a0347969e46aad2e35d5587206, type: 3}
   - {fileID: 8300000, guid: 555bfdc8038d43a4793a3fc31f6b4fcf, type: 3}
   - {fileID: 8300000, guid: c084ef786857e9f47ae15cb92ef9a6bf, type: 3}
-  - {fileID: 8300000, guid: 855cdf088af3463408914a335db6c19e, type: 3}
   _songPlayer: {fileID: 103342801}
   _songLabel: {fileID: 1600949754}
 --- !u!114 &1180868548
@@ -8538,8 +8538,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Boss Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

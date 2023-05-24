@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +27,44 @@ public class MainMenuController : MonoBehaviour
 			_allSoundsButton.sprite = _soundsEnabledSprite;
 		}
 	}
+
+	private void Awake()
+	{
+		DataManager.DataHandler = new FileDataHandler(Application.persistentDataPath, DataManager.FileName, DataManager.UseEncryption);
+		DataManager.DataPersistenceObjects = FindAllDataPersisnenceObjects();
+		DataManager.LoadGame();
+
+		CheckLongTimeAchivements();
+	}
+
+	private void CheckLongTimeAchivements()
+	{
+		GameData gameData = DataManager.GameDataInfo;
+		if (gameData.ChickenCount >= 100)
+			gameData.AchievementsReceived["Lover of kisses"] = true;
+		if (gameData.ChickenCount >= 1000)
+			gameData.AchievementsReceived["KFC-hunter"] = true;
+
+		if (gameData.DeathsCount >= 100)
+			gameData.AchievementsReceived["Persistent"] = true;
+		if (gameData.DeathsCount >= 1000)
+			gameData.AchievementsReceived["Iron Will"] = true;
+
+		if (gameData.AllGameMoneyEarned >= 2000)
+			gameData.AchievementsReceived["Hard worker"] = true;
+	}
+
+	private List<IDataPersistence> FindAllDataPersisnenceObjects()
+	{
+		IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
+		return new List<IDataPersistence>(dataPersistenceObjects);
+	}
+
+	private void OnApplicationQuit()
+	{
+		DataManager.SaveGame();
+	}
+
 
 	public void Play()
     {

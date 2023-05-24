@@ -43,12 +43,15 @@ public class GameSpeedController : MonoBehaviour
 
 		var intTime = (int)_time;
 
-		if ((int)_bossesTimer == _bossStartsTimings[_currentBossNumber] && _bossEnabled == false) 
+		if (_currentBossNumber < _bossStartsTimings.Length)
 		{
-			_bossEnabled = true;
-			StartBossFight?.Invoke(_currentBossNumber);
-			Debug.Log("Start Boss");
-		} 
+			if ((int)_bossesTimer == _bossStartsTimings[_currentBossNumber] && _bossEnabled == false) 
+			{
+				_bossEnabled = true;
+				StartBossFight?.Invoke(_currentBossNumber);
+				Debug.Log("Start Boss");
+			} 
+		}
 
 		_timerLabel.text = intTime.ToString();
 
@@ -65,10 +68,7 @@ public class GameSpeedController : MonoBehaviour
 		_bossEnabled = false;
 		_bossesTimer = 0;
 		BossDeaD?.Invoke();
-		if (_currentBossNumber < _bossStartsTimings.Length - 1)
-		{
-			_currentBossNumber++;
-		}
+		_currentBossNumber++;
 	}
 	
 	private void SpeedUpObjects()

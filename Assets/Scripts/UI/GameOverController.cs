@@ -24,9 +24,14 @@ public class GameOverController : MonoBehaviour
 		_scoreLabel.text = scoreValue.ToString();
 		_timeLabel.text = timeValue.ToString();
 
-		var balance = PlayerPrefs.GetFloat("balanceTemp", 0);
-		PlayerPrefs.SetFloat("balanceTemp", balance + (int)(timeValue / 6) + (scoreValue * 5));
-		Debug.Log(PlayerPrefs.GetFloat("balanceTemp"));
+		int newMoneyValue = (int)(timeValue / 6) + (scoreValue * 5);
+
+		DataManager.GameDataInfo.Money += newMoneyValue;
+		DataManager.GameDataInfo.AllGameMoneyEarned += newMoneyValue;
+		DataManager.GameDataInfo.ChickenCount += scoreValue;
+		DataManager.GameDataInfo.DeathsCount += 1;
+
+		DataManager.SaveGame();
 	}
 
 	public void RestartGame()

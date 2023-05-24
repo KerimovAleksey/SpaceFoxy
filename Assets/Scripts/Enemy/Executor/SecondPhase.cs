@@ -154,4 +154,9 @@ public class SecondPhase : BossesStandartAttackComponent
 		obj.SetActive(true);
 		obj.transform.position = GetRandomMapPosition();
 	}
+	private void OnDestroy()
+	{
+		DataManager.GameDataInfo.AchievementsReceived["Purposeful"] = true;
+		DataManager.GameDataInfo.AchievementsReceived["A small step, a big way"] = true;
+	}
 }

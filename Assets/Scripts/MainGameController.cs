@@ -39,14 +39,14 @@ public class MainGameController : MonoBehaviour
 	private void LoadShopItems()
 	{
 		bool shieldEnabled;
-		ScenesBridge.ShopItems.TryGetValue("TemporaryShield", out shieldEnabled);
+		DataManager.GameDataInfo.ItemsBought.TryGetValue("TemporaryShield", out shieldEnabled);
 		if (shieldEnabled)
 		{
 			_shield.SetActive(true);
 		}
 
 		bool goldenChickenEnabled;
-		ScenesBridge.ShopItems.TryGetValue("GoldenChicken", out goldenChickenEnabled);
+		DataManager.GameDataInfo.ItemsBought.TryGetValue("GoldenChicken", out goldenChickenEnabled);
 		if (goldenChickenEnabled)
 		{
 			_goldenChickenObjPool.SetActive(true);

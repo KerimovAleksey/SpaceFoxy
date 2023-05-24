@@ -22,7 +22,6 @@ public class ShopItem : MonoBehaviour
 	public string IdName => _idName;
 
 	private bool _isBuyed;
-	public bool IsBougth => _isBuyed;
 
 	private CanvasGroup _alphaComponent;
 
@@ -38,11 +37,7 @@ public class ShopItem : MonoBehaviour
 			_shopManager.OnBuyItem(_price);
 			ActionWhenItemIsBuyed();
 
-			if (ScenesBridge.ShopItems.ContainsKey(IdName))
-			{
-				ScenesBridge.ShopItems.Remove(IdName);
-			}
-			ScenesBridge.ShopItems.Add(IdName, _isBuyed);
+			DataManager.GameDataInfo.ItemsBought[_idName] = true;
 		}
 		else
 		{

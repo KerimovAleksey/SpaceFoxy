@@ -46,9 +46,14 @@ public class MenuController : MonoBehaviour
         {
             _currentSongIndex = _songList.Length - 1;
         }
-        _songPlayer.clip = _songList[--_currentSongIndex];
+        else
+        {
+            _currentSongIndex--;
+        }
+        _songPlayer.clip = _songList[_currentSongIndex];
         PrintMusicName();
         _songPlayer.Play();
+        CancelInvoke();
 		Invoke("NextSong", _songPlayer.clip.length);
 	}
 
@@ -58,10 +63,15 @@ public class MenuController : MonoBehaviour
         {
             _currentSongIndex = 0;
         }
-        _songPlayer.clip = _songList[++_currentSongIndex];
+        else
+        {
+            _currentSongIndex++;
+        }
+        _songPlayer.clip = _songList[_currentSongIndex];
 		PrintMusicName();
 		_songPlayer.Play();
-        Invoke("NextSong", _songPlayer.clip.length);
+		CancelInvoke();
+		Invoke("NextSong", _songPlayer.clip.length);
 	}
 
     public void RemeshPlayList()

@@ -204,6 +204,6 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 
 	private void OnDestroy()
 	{
-		ScenesBridge.Achivements.Add("Keep going!");
+		DataManager.GameDataInfo.AchievementsReceived["Keep going!"] = true;
 	}
 }
