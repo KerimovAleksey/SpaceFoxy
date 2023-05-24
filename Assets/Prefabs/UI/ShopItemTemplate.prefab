@@ -182,10 +182,10 @@ RectTransform:
   m_Father: {fileID: 8402249372736147606}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8947598, y: 0.84444726}
+  m_AnchorMin: {x: 0.8622792, y: 0.8168694}
   m_AnchorMax: {x: 0.9710001, y: 0.91331667}
   m_AnchoredPosition: {x: 0.3999939, y: -0.30000305}
-  m_SizeDelta: {x: 0.13549805, y: -0.03239441}
+  m_SizeDelta: {x: -0.20409966, y: -0.09369993}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &2186008664484630797
 CanvasRenderer:
@@ -268,7 +268,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6605272606682093503}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1416355892097375914}
+        m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
+        m_MethodName: InfoButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2261948926991577453
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +675,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9047361150756829001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1416355892097375914}
+        m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
+        m_MethodName: TryBuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &306990711906574911
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1225,6 +1249,7 @@ GameObject:
   - component: {fileID: 8402249372736147606}
   - component: {fileID: 8402249372736147600}
   - component: {fileID: 8402249372736147607}
+  - component: {fileID: 1416355892097375914}
   m_Layer: 5
   m_Name: ShopItemTemplate
   m_TagString: Untagged
@@ -1297,6 +1322,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1416355892097375914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402249372736147605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289ae8a412e390447b613f7dfe1a6753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _price: 0
+  _notEnoughMoneyLabel: {fileID: 2522056419257128391}
+  _buyButtonLabel: {fileID: 1446636054977442812}
+  _buyButtonImage: {fileID: 9047361150756829001}
+  _shopManager: {fileID: 0}
+  _infoPanel: {fileID: 3975964389494547822}
+  _idName: 
 --- !u!1 &9094786500699025746
 GameObject:
   m_ObjectHideFlags: 0

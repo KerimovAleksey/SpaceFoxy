@@ -138,4 +138,10 @@ public class ExecutorAttacking : BossesStandartAttackComponent
 		StopAllCoroutines();
 		enabled = false;
 	}
+
+	private void OnDestroy()
+	{
+		ScenesBridge.Achivements.Add("Purposeful");
+		ScenesBridge.Achivements.Add("A small step, a big way");
+	}
 }

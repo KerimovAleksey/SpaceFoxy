@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class ShopItem : MonoBehaviour
+public class ShopItem : MonoBehaviour
 {
     [SerializeField] private int _price;
 
@@ -18,26 +18,31 @@ public abstract class ShopItem : MonoBehaviour
 	[SerializeField] protected ShopManager _shopManager;
 
 	[SerializeField] private GameObject _infoPanel;
+	[SerializeField] private string _idName;
+	public string IdName => _idName;
 
-	private bool _isBuyed = false;
+	private bool _isBuyed;
+	public bool IsBougth => _isBuyed;
+
 	private CanvasGroup _alphaComponent;
 
-	private void OnEnable()
+	private void Start()
 	{
-		if (_isBuyed == true)
-		{
-			ActionWhenItemIsBuyed();
-		}
 		_alphaComponent = _notEnoughMoneyLabel.GetComponent<CanvasGroup>();
 	}
 
 	public void TryBuyItem()
 	{
-		if (_shopManager.GetMoneyBalance() > _price)
+		if (_shopManager.GetMoneyBalance() >= _price)
 		{
 			_shopManager.OnBuyItem(_price);
 			ActionWhenItemIsBuyed();
-			ItemIsBuyed();
+
+			if (ScenesBridge.ShopItems.ContainsKey(IdName))
+			{
+				ScenesBridge.ShopItems.Remove(IdName);
+			}
+			ScenesBridge.ShopItems.Add(IdName, _isBuyed);
 		}
 		else
 		{
@@ -45,9 +50,19 @@ public abstract class ShopItem : MonoBehaviour
 		}
 	}
 
-	protected abstract void ItemIsBuyed();
+	public void SetBougthStatus(bool status)
+	{
+		_isBuyed = status;
+		if (_isBuyed)
+		{
+			_buyButtonImage.color = new Color(1, 1, 1, 1);
+			_buyButtonLabel.gameObject.SetActive(false);
+			_buyButtonImage.GetComponent<Button>().interactable = false;
+		}
+	}
 
-	protected void ActionWhenItemIsBuyed()
+	[ContextMenu("Buy This")]
+	private void ActionWhenItemIsBuyed()
 	{
 		_isBuyed = true;
 		_buyButtonImage.color = new Color(1, 1, 1, 1);

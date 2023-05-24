@@ -8,8 +8,16 @@ public class MainGameController : MonoBehaviour
 	[SerializeField] private GameObject _fox;
 	[SerializeField] private Joystick _joystick;
 	[SerializeField] private GameObject _sencorController;
+
+	[SerializeField] private GameObject _shield;
+
+	[SerializeField] private Spawner _goldenChickenSpawner;
+	[SerializeField] private GameObject _goldenChickenObjPool;
+
 	private void Start()
 	{
+		LoadShopItems();
+		AudioListener.volume = PlayerPrefs.GetFloat("GlobalVolume", 0.5f);
 		var controlType = PlayerPrefs.GetInt("ControlType");
 		switch (controlType)
 		{
@@ -25,6 +33,24 @@ public class MainGameController : MonoBehaviour
 				_fox.AddComponent<JoystickMover>();
 				_fox.GetComponent<JoystickMover>().SetReferences(_joystick);
 				break;
+		}
+	}
+
+	private void LoadShopItems()
+	{
+		bool shieldEnabled;
+		ScenesBridge.ShopItems.TryGetValue("TemporaryShield", out shieldEnabled);
+		if (shieldEnabled)
+		{
+			_shield.SetActive(true);
+		}
+
+		bool goldenChickenEnabled;
+		ScenesBridge.ShopItems.TryGetValue("GoldenChicken", out goldenChickenEnabled);
+		if (goldenChickenEnabled)
+		{
+			_goldenChickenObjPool.SetActive(true);
+			_goldenChickenSpawner.enabled = true;
 		}
 	}
 }

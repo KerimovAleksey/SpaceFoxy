@@ -201,4 +201,9 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 	{
 		SetStandartMeteorsCount(2);
 	}
+
+	private void OnDestroy()
+	{
+		ScenesBridge.Achivements.Add("Keep going!");
+	}
 }

@@ -79,4 +79,9 @@ public class CapsuloidAttacking : BossesStandartAttackComponent
 			yield return new WaitForSeconds(0.15f);
 		}
 	}
+
+	private void OnDestroy()
+	{
+		ScenesBridge.Achivements.Add("The beginning of a journey");
+	}
 }

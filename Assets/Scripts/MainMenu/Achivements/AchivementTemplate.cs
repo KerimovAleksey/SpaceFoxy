@@ -14,7 +14,20 @@ public class AchivementTemplate : MonoBehaviour, IPointerEnterHandler, IPointerE
 	[SerializeField] private GameObject _descriptionPanel;
 	[SerializeField] private TMP_Text _descriptionLabel;
 
+	[SerializeField] private string _id;
+
 	private CanvasGroup _canvasGroup;
+	private bool _collected;
+
+	public bool Collected => _collected;
+	public string ID => _id;
+	public string Name => _nameLabel.text;
+
+	[ContextMenu("Generate guid for id")]
+	private void GenerateGuid()
+	{
+		_id = System.Guid.NewGuid().ToString();
+	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
@@ -26,23 +39,32 @@ public class AchivementTemplate : MonoBehaviour, IPointerEnterHandler, IPointerE
 		_descriptionPanel.SetActive(true);
 	}
 
-	private void Start()
+	private void Awake()
 	{
 		_canvasGroup = GetComponent<CanvasGroup>();
 		_image.sprite = _achievementItem.Sprite;
 		_nameLabel.text = _achievementItem.Name;
-		_isRecieved.SetActive(_achievementItem.IsReceived);
 		_descriptionLabel.text = _achievementItem.Description;
+	}
 
-		if (_achievementItem.IsReceived == true)
+	private void OnEnable()
+	{
+		if (_collected)
 		{
-			_canvasGroup.alpha = 1;
+			GetThisAchievement();
 		}
 	}
 
+	[ContextMenu("get this")]
 	public void GetThisAchievement()
 	{
+		_collected = true;
 		_canvasGroup.alpha = 1;
 		_isRecieved.SetActive(true);
+	}
+
+	public void ChangeCollectedStatus(bool status)
+	{
+		_collected = status;
 	}
 }

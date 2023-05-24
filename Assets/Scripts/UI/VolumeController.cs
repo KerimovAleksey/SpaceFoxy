@@ -12,6 +12,7 @@ public class VolumeController : MonoBehaviour
 
 	private void OnEnable()
 	{
+		_sliderValue.value = PlayerPrefs.GetFloat("GlobalVolume");
 		if (AudioListener.pause == true)
 		{
 			_allSoundsButton.sprite = _disabledAllSoundsSprite;
@@ -50,6 +51,7 @@ public class VolumeController : MonoBehaviour
 
     public void ChangeSliderValue()
     {
-        AudioListener.volume = _sliderValue.value;
-    }
+        PlayerPrefs.SetFloat("GlobalVolume", _sliderValue.value);
+		AudioListener.volume = PlayerPrefs.GetFloat("GlobalVolume");
+	}
 }

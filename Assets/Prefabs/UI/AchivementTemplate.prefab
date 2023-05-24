@@ -364,7 +364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7996307850889085015
 RectTransform:
   m_ObjectHideFlags: 0
@@ -523,6 +523,7 @@ MonoBehaviour:
   _isRecieved: {fileID: 7996307850889085008}
   _descriptionPanel: {fileID: 5270109641984147323}
   _descriptionLabel: {fileID: 6862614077045630988}
+  _id: 
 --- !u!225 &1412017957666506365
 CanvasGroup:
   m_ObjectHideFlags: 0

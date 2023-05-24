@@ -19,9 +19,15 @@ public class GameOverController : MonoBehaviour
 
 	private void SetResultValues()
     {
-		_scoreLabel.text = _scoreComponent.GetCurrentScore().ToString();
-		_timeLabel.text = _gameSpeedController.GetCurrentTime().ToString();
-    }
+		var scoreValue = _scoreComponent.GetCurrentScore();
+		var timeValue = _gameSpeedController.GetCurrentTime();
+		_scoreLabel.text = scoreValue.ToString();
+		_timeLabel.text = timeValue.ToString();
+
+		var balance = PlayerPrefs.GetFloat("balanceTemp", 0);
+		PlayerPrefs.SetFloat("balanceTemp", balance + (int)(timeValue / 6) + (scoreValue * 5));
+		Debug.Log(PlayerPrefs.GetFloat("balanceTemp"));
+	}
 
 	public void RestartGame()
     {
