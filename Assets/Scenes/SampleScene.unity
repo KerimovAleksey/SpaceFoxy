@@ -1421,6 +1421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 623310525178795896, guid: ba9be299b70c29f43a2b55f6153f9d41, type: 3}
   _objectPool: {fileID: 123642717}
+  _instanceDelay: 10
   _objectCount: 10
 --- !u!1 &131911444
 GameObject:
@@ -1892,6 +1893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 623310525178795896, guid: 11ee6219b4362b345af94b6541b7f3d5, type: 3}
   _objectPool: {fileID: 211455415}
+  _instanceDelay: 65
   _objectCount: 12
 --- !u!1 &223372681
 GameObject:
@@ -2015,6 +2017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 623310525178795896, guid: 65b1f6418deabdb40a212c27aada642f, type: 3}
   _objectPool: {fileID: 232264223}
+  _instanceDelay: 65
   _objectCount: 12
 --- !u!1 &270662750
 GameObject:
@@ -2735,6 +2738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 623310525178795896, guid: 7f0857c31030e2f49a93454312f3ad44, type: 3}
   _objectPool: {fileID: 420171705}
+  _instanceDelay: 10
   _objectCount: 15
 --- !u!1001 &431046447
 PrefabInstance:
@@ -2995,6 +2999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3170050188282041914, guid: 2dfc5913dbcceda45ad4ef09ed8528ed, type: 3}
   _objectPool: {fileID: 450918869}
+  _instanceDelay: 0
   _objectCount: 10
 --- !u!1 &462590184
 GameObject:
@@ -3266,7 +3271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 2674320989587955177, guid: 069172d26e505bc4bb9337166668192c, type: 3}
   _objectPool: {fileID: 476750247}
-  _objectCount: 15
+  _instanceDelay: 90
+  _objectCount: 7
 --- !u!1 &505995646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3946,6 +3952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 8238817142109569252, guid: 2725d13053198fd41a07827cd1351182, type: 3}
   _objectPool: {fileID: 542017453}
+  _instanceDelay: 80
   _objectCount: 30
 --- !u!1 &583150445
 GameObject:
@@ -4314,6 +4321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3170050188282041914, guid: 299180fca5a95b24487cf4f3d909168d, type: 3}
   _objectPool: {fileID: 698581820}
+  _instanceDelay: 15
   _objectCount: 10
 --- !u!1 &770119278
 GameObject:
@@ -4606,6 +4614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 515768892680828286, guid: c4e1dda42613fea4889aecf71dbb835a, type: 3}
   _objectPool: {fileID: 778356186}
+  _instanceDelay: 0
   _objectCount: 1
 --- !u!1 &790298943
 GameObject:
@@ -4924,7 +4933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 515768892680828286, guid: bd37fe81d88ee474b98e59c1fcf35744, type: 3}
   _objectPool: {fileID: 919934928}
-  _objectCount: 6
+  _instanceDelay: 0
+  _objectCount: 3
 --- !u!1 &925154736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5800,6 +5810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3170050188282041914, guid: d2dd0aae073c8fb488104a83c8673dc3, type: 3}
   _objectPool: {fileID: 1140741756}
+  _instanceDelay: 10
   _objectCount: 8
 --- !u!1 &1144571042
 GameObject:
@@ -6342,7 +6353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3170050188282041914, guid: e152ed2212b5f8c45a76b8dcb8a41aa0, type: 3}
   _objectPool: {fileID: 1232856731}
-  _objectCount: 60
+  _instanceDelay: 90
+  _objectCount: 40
 --- !u!1 &1240449565
 GameObject:
   m_ObjectHideFlags: 0
@@ -7120,6 +7132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3170050188282041914, guid: 4e1d36500485b264cb0f607f6c33cf25, type: 3}
   _objectPool: {fileID: 1376932582}
+  _instanceDelay: 60
   _objectCount: 12
 --- !u!1 &1404231196 stripped
 GameObject:
@@ -7641,6 +7654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3170050188282041914, guid: 13ce615f24fad914ca0aec4c836f79f4, type: 3}
   _objectPool: {fileID: 1650117741}
+  _instanceDelay: 20
   _objectCount: 20
 --- !u!1 &1655989374
 GameObject:
@@ -7772,6 +7786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3170050188282041914, guid: 2b0d2d1453f089e4eb4fb78b2d566aeb, type: 3}
   _objectPool: {fileID: 1672717690}
+  _instanceDelay: 25
   _objectCount: 15
 --- !u!1 &1704011555
 GameObject:
@@ -8147,6 +8162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 2129185523013474899, guid: 73b027e9cbe6c234599659def9a47593, type: 3}
   _objectPool: {fileID: 1784911748}
+  _instanceDelay: 90
   _objectCount: 3
 --- !u!95 &1786226502 stripped
 Animator:

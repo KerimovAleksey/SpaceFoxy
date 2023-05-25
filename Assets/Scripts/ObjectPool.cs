@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +5,17 @@ public class ObjectPool : MonoBehaviour
 {
 	[SerializeField] private GameObject _prefab;
 	[SerializeField] private GameObject _objectPool;
-
+	[SerializeField] private float _instanceDelay;
 	[SerializeField] private int _objectCount;
 
 	private List<GameObject> _objects = new List<GameObject>();
 
 	private void Start()
+	{
+		Invoke("InstanceWithDelay", _instanceDelay);
+	}
+
+	private void InstanceWithDelay()
 	{
 		InstantiateObjects(_objectCount);
 	}
