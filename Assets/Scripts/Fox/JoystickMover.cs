@@ -12,7 +12,7 @@ public class JoystickMover : FoxMover
 	private void Start()
 	{
 		
-		_speed = PlayerPrefs.GetFloat("FoxSpeed", 30);
+		_speed = PlayerPrefs.GetFloat("FoxSpeed", 25);
 	}
 
 	private void OnEnable()

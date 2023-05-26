@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,11 +10,11 @@ public class ChooseControlType : MonoBehaviour
     {
         PlayerPrefs.SetInt("ControlType", number);
         _loadingLabel.gameObject.SetActive(true);
-        Invoke("ChangeScene", 0.1f);
-    }
+        Invoke(nameof(ChangeScene), 0.1f);
+	}
 
     private void ChangeScene()
     {
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
-    }
+		SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("SceneNumber"), LoadSceneMode.Single);
+	}
 }

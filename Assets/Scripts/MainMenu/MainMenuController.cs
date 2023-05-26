@@ -65,11 +65,10 @@ public class MainMenuController : MonoBehaviour
 		DataManager.SaveGame();
 	}
 
-
 	public void Play()
     {
 		_loadingLabel.SetActive(true);
-		Invoke("LoadMainScene", 0.1f);
+		Invoke(nameof(LoadMainScene), 0.1f);
 	}
 
 	private void LoadMainScene()

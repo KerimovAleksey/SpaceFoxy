@@ -12,10 +12,13 @@ public class JoystickOption : MonoBehaviour
 
 	private void OnEnable()
 	{
-		_foxMover = _fox.GetComponent<FoxMover>();
-		_slider.value = PlayerPrefs.GetFloat("FoxSpeed", _foxMover.GetCurrentSpeed());
+		if (PlayerPrefs.GetInt("ControlType") == 2)
+		{
+			_foxMover = _fox.GetComponent<FoxMover>();
+			_slider.value = PlayerPrefs.GetFloat("FoxSpeed", _foxMover.GetCurrentSpeed());
 
-		SetLabelText((int)_slider.value);
+			SetLabelText((int)_slider.value);
+		}
 	}
 
 	public void ChangeJoystickSensitivity()

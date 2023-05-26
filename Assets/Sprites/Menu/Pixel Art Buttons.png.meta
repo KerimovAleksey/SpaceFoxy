@@ -169,7 +169,7 @@ TextureImporter:
         width: 54
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,6 +177,48 @@ TextureImporter:
       bones: []
       spriteID: afa3a095eead9324796699a81bfcaf22
       internalID: 1042696654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Art Buttons_2
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 267
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a29f5cf735a8543937606cc42c539f
+      internalID: 510185634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel Art Buttons_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 139
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00714dd425649f549afb8e4dbfea995c
+      internalID: -1891944228
       vertices: []
       indices: 
       edges: []
@@ -193,6 +235,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Pixel Art Buttons_0: -1246303647
+      Pixel Art Buttons_3: -1891944228
+      Pixel Art Buttons_2: 510185634
       Pixel Art Buttons_1: 1042696654
   spritePackingTag: 
   pSDRemoveMatte: 0

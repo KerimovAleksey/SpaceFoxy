@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -88,4 +89,8 @@ public class MenuController : MonoBehaviour
     {
         _songLabel.text = _songPlayer.clip.name;
     }
+	public void HomeButton()
+	{
+		SceneManager.LoadScene(0, LoadSceneMode.Single);
+	}
 }

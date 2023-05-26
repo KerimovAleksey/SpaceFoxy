@@ -11,7 +11,7 @@ public class TapDirectionMover : FoxMover
 	protected override void Update()
 	{
 		CheckPlayerPosition();
-		if (_isControlled == true)
+		if (_isControlled == true && Time.timeScale > 0)
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
@@ -19,7 +19,7 @@ public class TapDirectionMover : FoxMover
 			}
 			Vector2 direction = click_pos - transform.position;
 
-			if (direction.magnitude > 0.11f)
+			if (direction.magnitude > 0.1f)
 			{
 				_rigidBody.velocity = direction.normalized * _speed;
 			}

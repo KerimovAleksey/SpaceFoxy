@@ -6,6 +6,7 @@ public class GameOverController : MonoBehaviour
 {
 	[SerializeField] private ScoreCompanent _scoreComponent;
 	[SerializeField] private GameSpeedController _gameSpeedController;
+	[SerializeField] private GameObject _healthContainer;
 
 	[SerializeField] private TMP_Text _scoreLabel;
 	[SerializeField] private TMP_Text _timeLabel;
@@ -17,6 +18,7 @@ public class GameOverController : MonoBehaviour
 
 	private void SetResultValues()
     {
+		_healthContainer.SetActive(false);
 		var scoreValue = _scoreComponent.GetCurrentScore();
 		var timeValue = _gameSpeedController.GetCurrentTime();
 		_scoreLabel.text = scoreValue.ToString();
