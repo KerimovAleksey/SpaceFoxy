@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CapsuloidAttacking : BossesStandartAttackComponent
 {
 	private List<Vector3> _meteorPositions = new List<Vector3>();
 
 	private int _saPostDelay = 3;
+	private BossHealthCompanent _healthComponent;
 	private void Awake()
 	{
 		SetSAPostDelay(_saPostDelay);
 		SetStandartAttackDelay(1);
+		_healthComponent = GetComponent<BossHealthCompanent>();
 	}
 
 	protected override void MakeSPecialAttack(int step)
@@ -82,6 +83,9 @@ public class CapsuloidAttacking : BossesStandartAttackComponent
 
 	private void OnDestroy()
 	{
-		DataManager.GameDataInfo.AchievementsReceived["The beginning of a journey"] = true;
+		if (_healthComponent.GetCurentHealth() <= 0)
+		{
+			DataManager.GameDataInfo.AchievementsReceived["The beginning of a journey"] = true;
+		}
 	}
 }

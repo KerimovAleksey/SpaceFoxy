@@ -72,4 +72,9 @@ public class HealthCompanent : MonoBehaviour
     {
         _isProtected = state;
     }
+
+    public int GetCurentHealth()
+    {
+        return _health;
+    }
 }

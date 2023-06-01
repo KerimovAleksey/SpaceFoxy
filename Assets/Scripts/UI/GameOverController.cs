@@ -31,6 +31,8 @@ public class GameOverController : MonoBehaviour
 		DataManager.GameDataInfo.ChickenCount += scoreValue;
 		DataManager.GameDataInfo.DeathsCount += 1;
 
+		CheckLevelOneRecords(scoreValue, timeValue);
+
 		DataManager.SaveGame();
 	}
 
@@ -44,4 +46,13 @@ public class GameOverController : MonoBehaviour
     {
 		SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
+
+	private void CheckLevelOneRecords(int chickensCount, float timeCount)
+	{
+		if (DataManager.GameDataInfo.MaxLevelOneTimeCount < timeCount)
+		{
+			DataManager.GameDataInfo.MaxLevelOneTimeCount = (int)timeCount;
+			DataManager.GameDataInfo.MaxLevelOneChickensCount = chickensCount;
+		}
+	}
 }

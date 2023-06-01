@@ -12,8 +12,11 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 	[SerializeField] private GameObject _damageOrb;
 	[SerializeField] private GameObject _orbsSpawnSigns;
 
+	private BossHealthCompanent _healthComponent;
+
 	private void Awake()
 	{
+		_healthComponent = GetComponent<BossHealthCompanent>();
 		SetSAPostDelay(3);
 		SetStandartAttackDelay(1);
 		SetStandartMeteorsCount(2);
@@ -204,6 +207,9 @@ public class JudicatorAttackController : BossesStandartAttackComponent
 
 	private void OnDestroy()
 	{
-		DataManager.GameDataInfo.AchievementsReceived["Keep going!"] = true;
+		if (_healthComponent.GetCurentHealth() <= 0)
+		{
+			DataManager.GameDataInfo.AchievementsReceived["Keep going!"] = true;
+		}
 	}
 }

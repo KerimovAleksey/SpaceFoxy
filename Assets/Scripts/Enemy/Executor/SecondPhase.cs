@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class SecondPhase : BossesStandartAttackComponent
@@ -22,8 +20,11 @@ public class SecondPhase : BossesStandartAttackComponent
 
 	[SerializeField] private ObjectPool _exposionOrbsPool;
 
+	private BossHealthCompanent _healthComponent;
+
 	private void Awake()
 	{	
+		_healthComponent = GetComponent<BossHealthCompanent>();
 		SetSAPostDelay(3);
 		SetStandartAttackDelay(1.25f);
 		SetStandartMeteorsCount(2);
@@ -154,9 +155,13 @@ public class SecondPhase : BossesStandartAttackComponent
 		obj.SetActive(true);
 		obj.transform.position = GetRandomMapPosition();
 	}
+
 	private void OnDestroy()
 	{
-		DataManager.GameDataInfo.AchievementsReceived["Purposeful"] = true;
-		DataManager.GameDataInfo.AchievementsReceived["A small step, a big way"] = true;
+		if (_healthComponent.GetCurentHealth() <= 0)
+		{
+			DataManager.GameDataInfo.AchievementsReceived["Purposeful"] = true;
+			DataManager.GameDataInfo.AchievementsReceived["A small step, a big way"] = true;
+		}
 	}
 }
