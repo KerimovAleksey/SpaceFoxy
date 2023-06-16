@@ -15,7 +15,7 @@ namespace LogicLevels
         private bool _isMoving = false;
         public bool IsMoving => _isMoving;
 
-		private void Start()
+        private void Start()
 		{
             _rigidBody = GetComponent<Rigidbody2D>();
 			transform.position = _currentPoint.transform.position;
@@ -27,7 +27,7 @@ namespace LogicLevels
         {
 			if (_isMoving == false && enabled == true)
 			{
-                _currentPoint.ChangeEnabled();
+                _currentPoint.gameObject.SetActive(true);
 
                 _currentPoint.MarkUnAvailablePoints();
 				_currentPoint = newPoint;

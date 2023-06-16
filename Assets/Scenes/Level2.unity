@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _foxMover: {fileID: 1636737249}
-  _timeOfStepChanging: 1
+  _timeOfStepChanging: 2
 --- !u!1001 &1042976539
 PrefabInstance:
   m_ObjectHideFlags: 0
